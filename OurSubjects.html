@@ -67,17 +67,17 @@
         })
     </script>
     <br><br><br>
-    
+    <script src="QuickAccess.js"></script>
     <div>
         <h1 class="display-1 font-weight-bold font-italic mt-5" style="font-size: 30px ;text-align: center; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Our Subjects</h1><br>
         <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 25px; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Quick Access</h2>
         <div class="gallery">
             
-            <img src="english.jpeg" />
-            <img src="math.jpg" />
-            <img src="Science.png" />
-            <img src="business.png" />
-            <img src="ict.png" />
+            <img id="english" src="english.jpeg" onclick="scrollToDiv('English')"/>
+            <img id="math" src="math.jpg" onclick="scrollToDiv('Math')" />
+            <img id="science" src="Science.png" onclick="scrollToDiv('Science')" />
+            <img id="business" src="business.png" onclick="scrollToDiv('Business-Studies')" />
+            <img id="ict" src="ict.png" onclick="scrollToDiv('ICT')" />
         </div>
         
     </div>
@@ -128,7 +128,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title 1</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="CourseInfo.html" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title 2</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="CourseInfo.html" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@
               <div class="card-body">
                 <h5 class="card-title">Pure 1</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="CourseInfo.html" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -168,7 +168,7 @@
               <div class="card-body">
                 <h5 class="card-title">Pure 2</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -179,7 +179,7 @@
               <div class="card-body">
                 <h5 class="card-title">Pure 3</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -190,7 +190,7 @@
               <div class="card-body">
                 <h5 class="card-title">Pure 4</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -202,7 +202,7 @@
               <div class="card-body">
                 <h5 class="card-title">Mechanics 1</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -222,7 +222,7 @@
               <div class="card-body">
                 <h5 class="card-title">Biology</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -233,7 +233,7 @@
               <div class="card-body">
                 <h5 class="card-title">Biology AS</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -244,7 +244,7 @@
               <div class="card-body">
                 <h5 class="card-title">Biology A2</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -255,7 +255,7 @@
               <div class="card-body">
                 <h5 class="card-title">Chemistry</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -266,7 +266,7 @@
               <div class="card-body">
                 <h5 class="card-title">Physics</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary"  style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -277,7 +277,7 @@
               <div class="card-body">
                 <h5 class="card-title">Physics AS</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="#" class="btn btn-primary"  style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -297,7 +297,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title 1</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary"  style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -308,7 +308,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title 2</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary"  style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -316,7 +316,7 @@
         
       </div>
       <br><br>
-      <div class="ict" id="ict">
+      <div class="ict" id="ICT">
         
         <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">ICT</h2>
         <br>
@@ -327,7 +327,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title 1</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary"  style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
@@ -338,7 +338,7 @@
               <div class="card-body">
                 <h5 class="card-title">Card title 2</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Details</a>
               </div>
             </div>
           </div>
