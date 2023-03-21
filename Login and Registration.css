@@ -7,7 +7,7 @@
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
-    background-color: #111111;
+    background-color:rgb(0, 0,0,0.7);
     font-family: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
     animation: myOpacity;
     animation-duration: 3s;
@@ -28,6 +28,7 @@
     font-family: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
     font-weight: bold;
     margin-bottom: 21px;
+    color: white;
   }
   
   .Login label {
@@ -36,6 +37,7 @@
     font-family: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
     font-size: 20px;
     font-weight: bold;
+    color: white;
   }
   
   .Login input[type="email"],
@@ -73,6 +75,7 @@
     text-align: center;
     font-family: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
     font-size: 18px;
+    color:white;
   }
   
   .Registration {
@@ -82,19 +85,21 @@
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
-    background-color: #111111;
+    background-color:rgb(0, 0,0,0.7);
     font-family: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
     animation: myOpacity;
     animation-duration: 3s;
     animation-iteration-count: 0.5;
+    
   }
   
   .Registration h2 {
     font-size: 35px;
     text-align: center;
-    font-weight: bold;
     font-family: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
+    font-weight: bold;
     margin-bottom: 21px;
+    color: white;
   }
   
   .Registration label {
@@ -103,6 +108,7 @@
     margin-bottom: 5px;
     font-size: 20px;
     font-weight: bold;
+    color: white;
     
   }
   
@@ -142,18 +148,19 @@
     text-align: center;
     font-size: 18px;
     font-family: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
+    color: white;
   }
   
-  body {
-    background-image: url(BACKGROUND.png);  
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: fixed;
-    background-size: cover;
-    color: #FFFFFF;
-
-    
-  }
+.bg-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: brightness(0.7);
+}
   .BACKGROUND-image{
     width: 100%;
     height: 100%;
@@ -165,14 +172,14 @@
     filter: brightness(0.6);
     filter:blur(20 px);
   }
-  .navbar{
+.navbar{
     transition: all 0.5s;
-  }
-  .navbar-scrolled{
-    background-color: rgb(60, 60, 60);
+}
+.navbar-scrolled{
+    background-color: rgba(73, 45, 45, 0.8);
     box-shadow: 0 3px 10px black;
-    
-  }
+     
+}
   .fa {
     padding: 5px;
   font-size: 5px;
@@ -246,5 +253,48 @@
     
 
   }
-
+  .AllTextsBg{
+    background-color: rgb(66, 66, 66,0.2);
+  }
+  #myBtn {
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    display: none; /* Hide the button by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 20px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Set a text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10px; /* Some padding */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.5s; /* Add animation */
+  }
+  /* On hover, add a darker background color */
+  #myBtn:hover {
+    background-color: #555;
+  }
+  #Scrollbutton {
+    background-color:#dc3545; width: 50px;
+    height: 50px;
+    display: inline-block; 
+    line-height:60px; 
+    text-align: center; 
+    border-radius: 4px; 
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    transition: background-color .3s, opacity .5s, visibility .5s; 
+    opacity: 0;
+    z-index: 1000;
+  }
+  #Scrollbutton i{
+     font-size:32px; color:white;
+  }
   
