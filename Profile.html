@@ -55,12 +55,12 @@
     <script src="ScrollTopButton.js"></script>
 
     <h1 class="display-1 font-weight-bold font-italic AllTextsBg" style="font-size: 60px ;text-align: center; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin-top: 7%;">Profile</h1>
-    <form class="ProfileData rcorners1 ">
+    <form class="ProfileData rcorners1" id="form">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
         <div class="card" style="background-color: rgb(66,66,66,0.2);">
           <div class="card-header lead font-weight-bold formAnimation" style="color: white;font-size: 25px; margin-left: auto;margin-right: auto;">
             User Information &nbsp;&nbsp;
-            <button type="button" class="btn btn-dark formAnimation lead font-weight-bold" id = "edit_btn">Update</button>
+            <input type="submit" class="btn btn-dark formAnimation lead font-weight-bold" id = "edit_btn" value="Update">
           </div>
           <div class="card-body" style="background-color:rgb(66,66,66,0.2);">
             <table style="margin-left: auto; margin-right: auto;">
@@ -75,7 +75,7 @@
                   </td>
                 <td>
                   <div class="formProfileMargin formAnimation">
-                    <input type="text" class="form-control" id="Ex_Name" value="NameHere" readonly>
+                    <input type="text" pattern="[a-zA-Z ]+" class="form-control" id="Ex_Name" value="Name Here" required readonly>
                     </div>
                 </td>
                 <td rowspan="5">
@@ -101,7 +101,7 @@
                   </td>
                 <td>
                   <div class="formProfileMargin formAnimation">
-                    <input type="text" class="form-control" id="Ex_Number" value="0123456789" readonly>
+                    <input type="tel" class="form-control" id="Ex_Number" pattern="[0-9]+" value="01234567891" readonly>
                   </div>
                 </td>
               </tr>
@@ -113,7 +113,7 @@
                   </td>
                 <td>
                   <div class="formProfileMargin formAnimation">
-                    <input type="text" class="form-control" id="Ex_Parent_Number" value="0123456789" readonly>
+                    <input type="tel" class="form-control" id="Ex_Parent_Number" pattern="[0-9]+" value="01234567891" readonly>
                   </div>
                 </td>
               </tr>
@@ -125,7 +125,7 @@
                 </td>
                 <td>
                   <div class="formProfileMargin formAnimation">
-                    <input type="email" class="form-control" id="Ex_Email" aria-describedby="emailHelp" value="Email@Example.com" readonly>
+                    <input type="email" class="form-control" id="Ex_Email" aria-describedby="emailHelp" value="Email@Example.com" required readonly>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>        </div>
                 </div>
                 </td>
@@ -138,20 +138,20 @@
                 </td>
                 <td>
                   <div class="formProfileMargin formAnimation">
-                    <input type="password" class="form-control" id="Ex_Password" value="HiddenMessage" readonly>
+                    <input type="password" class="form-control" id="Ex_Password" value="HiddenMessage" required readonly>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div class="form-group formAnimation">
-                    <label for="Zip Code" class="lead font-weight-bold" style="color: white;">School Name</label>
+                    <label for="School" class="lead font-weight-bold" style="color: white;">School Name</label>
                   </div>
                 </td>
                 <td>
                   <div class="formProfileMargin formAnimation">
-                    <input type="text" class="form-control" id="Zip Code" value="ExSchool" readonly>
-                    <small id="ZipHelp" class="form-text text-muted">Optional</small> 
+                    <input type="text" pattern="[a-zA-Z ]+" class="form-control" id="School" value="ExSchool" readonly>
+                    <small id="SchoolHelp" class="form-text text-muted">Optional</small> 
                 </div>
                 </td>
               </tr>

@@ -120,7 +120,7 @@ h1, h2, h3 {
 }
 
 #Scrollbutton {
-  background-color:rgb(39, 160, 130); width: 50px;
+  background-color:#dc3545; width: 50px;
   height: 50px;
   display: inline-block; 
   line-height:60px; 
@@ -150,11 +150,11 @@ h1, h2, h3 {
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: rgb(39, 160, 130); /* Set a background color */
+  background-color: red; /* Set a background color */
   color: white; /* Set a text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 10px; /* Some padding */
-  border-radius: 20px; /* Rounded corners */
+  border-radius: 5px; /* Rounded corners */
   transition: all 0.5s; /* Add animation */
 }
 

@@ -6,16 +6,18 @@ let Name = document.getElementById("Ex_Name");
 let phone = document.getElementById("Ex_Number");
 let p_phone = document.getElementById("Ex_Parent_Number");
 let address = document.getElementById("Ex_Address");
-let zip = document.getElementById("Zip Code");
+let zip = document.getElementById("School");
 let gender = document.getElementById("Gender");
 let imgUpload = document.getElementById("file-ip-1");
 let lblImg = document.getElementById("labelforImg");
 lblImg.style.opacity = "0";
-btn1.onclick = function () {
+const formElement = document.querySelector('form');
+formElement.addEventListener('submit', (event) => {
+    event.preventDefault();
     num++;
     if (num % 2 != 0) {
         window.alert("You Can Change your Profile")
-        btn1.innerHTML = "Save";
+        btn1.value = "Save";
         remove(email);
         remove(pass);
         remove(Name);
@@ -40,12 +42,14 @@ btn1.onclick = function () {
         imgUpload.disabled = true;
         lblImg.style.opacity = "0";
         window.alert("Changes Saved");
+        formElement.submit();
 
     }
-}
+})
 function remove(x) {
     x.removeAttribute("readonly");
 }
 function setreadOnly(x){
     x.readOnly = true;
 }
+
