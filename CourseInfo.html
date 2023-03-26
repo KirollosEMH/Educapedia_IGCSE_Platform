@@ -55,13 +55,13 @@
       </nav>
       <button onclick="topFunction()" id="myBtn" title="Go to top">↑</button>
       <script src="ScrollTopButton.js"></script>
-      
+      <script src="CourseInfo.js"></script> 
       
 
 
-          <img src="BG3.PNG" alt="" class="bg-image">
+      <img src="BG3.png" alt="" class="bg-image">
           
-          <script>
+      <script>
               const navEl = document.querySelector('.navbar');
               window.addEventListener('scroll',()=>{
                   if(window.scrollY >= 150){
@@ -86,12 +86,12 @@
         <div class="card mb-3" style="max-width: 100%;opacity: 0.8;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="P1-01.png" class="img-fluid rounded-start" alt="..." >
+                <img src="" id="courseImage" class="img-fluid rounded-start" alt="..." >
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h1 class="card-title">Pure 1</h1>
-                  <p class="card-text" style="font-size: 15px;">This Course will provide explanation for Pure 1 Mathematics and click on this link to know more <a href="Test.mp4" id="video-link">(CLICK HERE)</a></p> 
+                  <h1 class="card-title" id="courseName"></h1>
+                  <p class="card-text" id="courseDescription" style="font-size: 15px;"><a href="Test.mp4" id="video-link">(CLICK HERE)</a></p> 
                   <ul class="list-group" style="font-size: 20px;">
                     <li class="list-group-item">2 videos</li>
                     <li class="list-group-item">4 quizzes</li>
@@ -99,7 +99,7 @@
                   </ul>
                   <br>
                   <h2 class="card-title">Price: 400 EGP</h2>
-                  <br>
+                  
                   <a href="#" class="btn btn-success" style="width: 100%;">Buy Now</a>
                   
                 </div>
@@ -111,6 +111,7 @@
       </div>
       
     </div>
+    
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
