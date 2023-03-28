@@ -32,10 +32,10 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="OurSubjects.html">Subjects</a>
-            </li>
+              </li>
             <li class="nav-item">
                 <a class="nav-link" href="Login.html">Sign in</a>
-            </li>
+              </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Contact Us
@@ -69,7 +69,7 @@
                 </tr>
                 <tr>
                   <td class="formAnimation">
-                    <input type="file" class="btn btn-light" name="video" required>
+                    <input type="file" class="btn btn-light" name="video" onchange="selectedVideo(this)" required>
                   <video id="video" controls style="width: 100%; height: 100%;">
                   <source id="source" type="video/mp4">
                   </video>
@@ -121,7 +121,7 @@
     
       <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src=""></script> <!--The JavaScript file for the video will go there-->
+    <script src="videoDisplay.js"></script>
     <script src="SubmitTwoForms.js"></script>
     <script src="CourseEdit.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
