@@ -9,7 +9,7 @@ def Login(request):
 def Register(request):
     return render(request, 'Educapedia/Registration.html')
 def ForgetPassword(request):
-    return render(request, 'Educapedia/ForgetPassword.html')
+    return render(request, 'Educapedia/Forget Password.html')
 def Profile(request):
     return render(request, 'Educapedia/Profile.html')
 def Dashboard(request):
