@@ -4,7 +4,7 @@
 .gallery {
     display: flex;
     height: 250px;
-    border: 1px solid white;
+    border: 0px solid white;
     border-radius: 10px;
     background-color: rgb(56, 45, 42);
     padding: 1%;

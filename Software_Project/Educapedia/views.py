@@ -4,9 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
 from .models import Student
 # Create your views here.
-import uuid
-def generate_random_username():
-    return uuid.uuid4().hex[:10]
+
+
 def Home(request):
     return render(request, 'Educapedia/Home.html')
 def Login(request):
