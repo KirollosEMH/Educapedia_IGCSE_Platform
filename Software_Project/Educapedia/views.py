@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
 from .models import Student
+from .models import Courses
 # Create your views here.
 
 
@@ -30,6 +31,9 @@ def Profile(request):
 def Dashboard(request):
     return render(request, 'Educapedia/Dashboard.html')
 def OurSubjects(request):
-    return render(request, 'Educapedia/OurSubjects.html')
-def CourseInfo(request):
-    return render(request, 'Educapedia/CourseInfo.html')
+    courses = Courses.objects.all()
+    context = {'courses': courses}
+    return render(request, 'Educapedia/OurSubjects.html', context)
+def CourseInfo(request, course_name):
+    course = Courses.objects.get(name=course_name)
+    return render(request, 'Educapedia/CourseInfo.html', {'course': course})

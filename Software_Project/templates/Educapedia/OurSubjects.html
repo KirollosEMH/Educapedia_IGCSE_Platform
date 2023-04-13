@@ -9,19 +9,19 @@
         <div class="collapse navbar-collapse font-weight-bold ml-1" style="font-size: 20px;" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="Home.html">Educapedia<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'Edu-Home' %}">Educapedia<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Profile.html">Profile</a>
+              <a class="nav-link" href="{% url 'Edu-Profile' %}">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Dashboard.html">Dashboard</a>
+              <a class="nav-link" href="{% url 'Edu-Dashboard' %}">Dashboard</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="OurSubjects.html">Subjects</a>
+                <a class="nav-link" href="{% url 'Edu-OurSubjects' %}">Subjects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Login.html">Sign in</a>
+                <a class="nav-link" href="{% url 'Edu-Login' %}">Sign in</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="AdminControl.html">Admin</a>
@@ -95,73 +95,21 @@
         <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Math</h2>
         <br>
         <div class="d-flex flex-wrap" style="margin-left: 1%;margin-right: 2%;">
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;" id="Pure 1">
-              <img src="{% static 'Educapedia/P1-01.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Pure 1</h5>
-                <p class="card-text">Teached by: Instructor 1</p>
-                <a href="CourseInfo.html?name=Pure 1&image=P1-01.png&description=This module covers algebra, coordinate geometry, and calculus" class="btn btn-primary" style="width: 100%;">Details</a>
+          {% for course in courses %}
+            {% if course.category == "math" %}
+              <div style="margin-bottom: 2%;">
+                <div class="card" style="width: 15rem;  opacity: 0.9;" id="{{ course.name }}">
+                  <img src="{{ course.picture.url }}" class="card-img-top" alt="{{ course.name }}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ course.name }}</h5>
+                    <p class="card-text">Taught by: {{ course.instructor }}</p>
+                    <a href="{% url 'Edu-CourseInfo' course.name %}" class="btn btn-primary" style="width: 100%;">Details</a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;" id="Pure 2">
-              <img src="{% static 'Educapedia/P2.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Pure 2</h5>
-                <p class="card-text">Teached by: Instructor 1</p>
-                <a href="CourseInfo.html?name=Pure 2&image=P2.png&description=This module covers algebra, trigonometry, and calculus" class="btn btn-primary" style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/P3.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Pure 3</h5>
-                <p class="card-text">Teached by: Instructor 1</p>
-                <a href="CourseInfo.html?name=Pure 3&image=P3.png&description=This module covers algebra, calculus, and differential equations" class="btn btn-primary" style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/P4.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Pure 4</h5>
-                <p class="card-text">Teached by: Instructor 1</p>
-                <a href="CourseInfo.html?name=Pure 4&image=P4.png&description=This module covers calculus, coordinate geometry, and numerical methods" class="btn btn-primary" style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Mechanics_1.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Mechanics 1</h5>
-                <p class="card-text">Teached by: Instructor 1</p>
-                <a href="CourseInfo.html?name=Mechanics 1&image=Mechanics_1.png&description=This module covers kinematics, dynamics, and statics" class="btn btn-primary" style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Statistics 1.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Statistics 1</h5>
-                <p class="card-text">Teached by: Instructor 1</p>
-                <a href="CourseInfo.html?name=Statistics 1&image=Statistics 1.png&description=This module covers statistical concepts such as probability theory, data representation, and statistical distributions" class="btn btn-primary" style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;
+            {% endif %}
+          {% endfor %}
 
         </div>
       </div>
@@ -171,83 +119,22 @@
         <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Science</h2>
         <br>
         <div class="d-flex flex-wrap" style="margin-left: 1%;margin-right: 2%;">
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Biology.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Biology</h5>
-                <p class="card-text">Teached by: Instructor 2</p>
-                <a href="CourseInfo.html?name=Biology&image=Biology.png&description=A subject that covers topics related to living organisms, including genetics, ecology, and human biology" class="btn btn-primary" style="width: 100%;">Details</a>
+          {% for course in courses %}
+            {% if course.category == "science" %}
+              <div style="margin-bottom: 2%;">
+                <div class="card" style="width: 15rem;  opacity: 0.9;" id="{{ course.name }}">
+                  <img src="{{ course.picture.url }}" class="card-img-top" alt="{{ course.name }}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ course.name }}</h5>
+                    <p class="card-text">Taught by: {{ course.instructor }}</p>
+                    <a href="{% url 'Edu-CourseInfo' course.name %}" class="btn btn-primary" style="width: 100%;">Details</a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Biology AS.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Biology AS</h5>
-                <p class="card-text">Teached by: Instructor 2</p>
-                <a href="CourseInfo.html?name=Biology AS&image=Biology AS.png&description=A subject that covers a combination of topics from biology, chemistry, and physics" class="btn btn-primary" style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Biology A2.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Biology A2</h5>
-                <p class="card-text">Teached by: Instructor 2</p>
-                <a href="CourseInfo.html?name=Biology A2&image=Biology A2.png&description=An advanced level course that builds upon the knowledge gained in the AS-level biology course, covering more advanced topics related to living organisms" class="btn btn-primary" style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Chemistry.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Chemistry</h5>
-                <p class="card-text">Teached by: Instructor 2</p>
-                <a href="CourseInfo.html?name=Chemistry&image=Chemistry.png&description=A subject that covers topics related to the properties and behavior of matter, including chemical reactions, atomic structure, and organic chemistry" class="btn btn-primary" style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Physics.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Physics</h5>
-                <p class="card-text">Teached by: Instructor 2</p>
-                <a href="CourseInfo.html?name=Physics&image=Physics.png&description=A subject that covers topics related to the fundamental laws of the universe, including mechanics, electricity and magnetism, and waves" class="btn btn-primary"  style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Physics AS.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Physics AS</h5>
-                <p class="card-text">Teached by: Instructor 2</p>
-                <a href="CourseInfo.html?name=Physics AS&image=Physics AS.png&description=An advanced level course that builds upon the knowledge gained in the IGCSE physics course, covering more in-depth topics related to the fundamental laws of the universe" class="btn btn-primary"  style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Combined Science.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Combined Science</h5>
-                <p class="card-text">Teached by: Instructor 2</p>
-                <a href="CourseInfo.html?name=Combined Science&image=Combined Science.png&description=A subject that covers a combination of topics from biology, chemistry, and physics" class="btn btn-primary"  style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;
+            {% endif %}
+          {% endfor %}
+          
         </div>
         
       </div>
@@ -258,27 +145,21 @@
         <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">ICT</h2>
         <br>
         <div class="d-flex flex-wrap" style="margin-left: 1%;margin-right: 2%;">
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/ICT Course.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">ICT</h5>
-                <p class="card-text">Teached by: Instructor 1</p>
-                <a href="CourseInfo.html?name=ICT&image=ICT Course.png&description=A subject that covers topics related to the use of technology in various contexts, including software applications, networks, and digital communication" class="btn btn-primary" style="width: 100%;">Details</a>
+          {% for course in courses %}
+            {% if course.category == "ict" %}
+              <div style="margin-bottom: 2%;">
+                <div class="card" style="width: 15rem;  opacity: 0.9;" id="{{ course.name }}">
+                  <img src="{{ course.picture.url }}" class="card-img-top" alt="{{ course.name }}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ course.name }}</h5>
+                    <p class="card-text">Taught by: {{ course.instructor }}</p>
+                    <a href="{% url 'Edu-CourseInfo' course.name %}" class="btn btn-primary" style="width: 100%;">Details</a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style="margin-bottom: 2%;">
-            <div class="card" style="width: 15rem;  opacity: 0.9;">
-              <img src="{% static 'Educapedia/Computer Science.png'%}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Computer Science</h5>
-                <p class="card-text">Teached by: Instructor 1</p>
-                <a href="CourseInfo.html?name=Computer Science&image=Computer Science.png&description=A subject that covers topics related to programming, algorithms, data structures, and computer systems" class="btn btn-primary" style="width: 100%;">Details</a>
-              </div>
-            </div>
-          </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+            {% endif %}
+          {% endfor %}
         </div>
         
       </div>

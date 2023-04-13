@@ -25,5 +25,5 @@ urlpatterns = [
     path('Profile/', Educapedia_views.Profile, name='Edu-Profile'),
     path('Dashboard/', Educapedia_views.Dashboard, name='Edu-Dashboard'),
     path('OurSubjects/', Educapedia_views.OurSubjects, name='Edu-OurSubjects'),
-    path('CourseInfo/', Educapedia_views.CourseInfo, name='Edu-CourseInfo'),
+    path('CourseInfo/<str:course_name>/', Educapedia_views.CourseInfo, name='Edu-CourseInfo'),
 ]

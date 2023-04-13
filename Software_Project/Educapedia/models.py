@@ -12,3 +12,22 @@ class Student (models.Model):
     
     def __str__(self):
         return self.user.username
+
+class Courses(models.Model):
+    CATEGORY_CHOICES = (
+        ('math', 'Math'),
+        ('science', 'Science'),
+        ('ict', 'ICT'),
+    )
+
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
+    instructor = models.CharField(max_length=100,default='Test')
+    video1 = models.FileField(upload_to='static/videos/')
+    video2 = models.FileField(upload_to='static/videos/')
+    quiz = models.URLField()
+    assignment = models.URLField()
+    picture = models.ImageField(upload_to='static/pictures/')
+    def __str__(self):
+        return self.name
