@@ -40,7 +40,7 @@
     color: white;
   }
   
-  .Login input[type="email"],
+  .Login input[type="username"],
   .Login input[type="password"] {
     width: 100%;
     padding: 10px;

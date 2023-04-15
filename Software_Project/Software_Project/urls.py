@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Educapedia import  views as Educapedia_views
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Educapedia_views.Home, name='Edu-Home'),
-    path('Login/', Educapedia_views.Login, name='Edu-Login'),
+    path('Login/', auth_views.LoginView.as_view(template_name='Educapedia/Login.html'), name='Edu-Login'),
+    path('Logout/', auth_views.LogoutView.as_view(template_name='Educapedia/Logout.html'), name='Edu-Logout'),
     path('Register/', Educapedia_views.Register, name='Edu-Register'),
     path('ForgetPassword/', Educapedia_views.ForgetPassword, name='Edu-ForgetPassword'),
     path('Profile/', Educapedia_views.Profile, name='Edu-Profile'),
@@ -27,3 +32,5 @@ urlpatterns = [
     path('OurSubjects/', Educapedia_views.OurSubjects, name='Edu-OurSubjects'),
     path('CourseInfo/<str:course_name>/', Educapedia_views.CourseInfo, name='Edu-CourseInfo'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

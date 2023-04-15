@@ -37,3 +37,17 @@ class UserRegisterForm(UserCreationForm):
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError("This email address is already in use.")
         return email
+    def clean_phone_number(self):
+        phone_number = self.cleaned_data.get('phone_number')
+        if Student.objects.filter(phone_number=phone_number).exists():
+            raise forms.ValidationError("This phone number is already in use.")
+        return phone_number
+    def clean_parent_phone_number(self):
+        parent_phone_number = self.cleaned_data.get('parent_phone_number')
+        if Student.objects.filter(parent_phone_number=parent_phone_number).exists():
+            raise forms.ValidationError("This parent phone number is already in use.")
+        return parent_phone_number
+
+
+
+

@@ -9,10 +9,7 @@
   <div class="collapse navbar-collapse font-weight-bold ml-1" style="font-size: 20px;" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'Edu-Home' %}">Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'Edu-Profile' %}">Profile</a>
+        <a class="nav-link" href="{% url 'Edu-Home' %}">Educapedia<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'Edu-Dashboard' %}">Dashboard</a>
@@ -20,11 +17,11 @@
       <li class="nav-item">
           <a class="nav-link" href="{% url 'Edu-OurSubjects' %}">Subjects</a>
       </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'Edu-Login' %}">Sign in</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Edu-Profile' %}">{{user.username}}</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="AdminControl.html">Admin</a>
+          <a class="nav-link" href="{% url 'Edu-Logout' %}">Logout</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,7 +36,7 @@
     </ul>
   </div>
 </nav>
-<h1 class="display-1 font-weight-bold font-italic AllTextsBg" style="font-size: 60px ;text-align: center; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin-top: 7%;">Profile</h1>
+<h1 class="display-1 font-weight-bold font-italic AllTextsBg" style="font-size: 60px ;text-align: center; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin-top: 7%;">Welcome {{user.first_name}}</h1>
 <form class="ProfileData rcorners1" id="form">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
     <div class="card" style="background-color: rgb(66,66,66,0.2);">
@@ -55,12 +52,12 @@
           <tr>
             <td>
               <div class="form-group formAnimation">
-                <label for="Name" class="lead font-weight-bold" style="color: white;">Name</label>
+                <label for="First Name" class="lead font-weight-bold" style="color: white;">First Name</label>
               </div>
               </td>
             <td>
               <div class="formProfileMargin formAnimation">
-                <input type="text" pattern="[a-zA-Z ]+" class="form-control" id="Ex_Name" value="Name Here" required readonly>
+                <input type="text" pattern="[a-zA-Z ]+" class="form-control" id="Ex_Name" value={{user.first_name}} required readonly>
                 </div>
             </td>
             <td rowspan="5">
@@ -76,6 +73,18 @@
                     </div>
                   </div>
               </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group formAnimation">
+                <label for="Last Name" class="lead font-weight-bold" style="color: white;">Last Name</label>
+              </div>
+              </td>
+            <td>
+              <div class="formProfileMargin formAnimation">
+                <input type="text" pattern="[a-zA-Z ]+" class="form-control" id="Ex_Name" value={{user.last_name}} required readonly>
+                </div>
             </td>
           </tr>
           <tr>
@@ -110,7 +119,7 @@
             </td>
             <td>
               <div class="formProfileMargin formAnimation">
-                <input type="email" class="form-control" id="Ex_Email" aria-describedby="emailHelp" value="Email@Example.com" required readonly>
+                <input type="email" class="form-control" id="Ex_Email" aria-describedby="emailHelp" value="{{user.email}}" required readonly>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>        </div>
             </div>
             </td>
