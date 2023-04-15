@@ -3,6 +3,7 @@ from .models import Student
 from .models import Courses
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
+from Educapedia.models import Profile
 # Register your models here.
 
 class StudentInline(admin.StackedInline):
@@ -20,3 +21,5 @@ admin.site.register(Courses)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'description', 'picture', 'created_at')
     search_fields = ('name', 'category')
+
+admin.site.register(Profile)

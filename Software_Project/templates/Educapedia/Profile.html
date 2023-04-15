@@ -37,7 +37,8 @@
   </div>
 </nav>
 <h1 class="display-1 font-weight-bold font-italic AllTextsBg" style="font-size: 60px ;text-align: center; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;margin-top: 7%;">Welcome {{user.first_name}}</h1>
-<form class="ProfileData rcorners1" id="form">
+<form class="ProfileData rcorners1" id="form" method = "POST" enctype = "multipart/form-data">
+  {% csrf_token %}
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
     <div class="card" style="background-color: rgb(66,66,66,0.2);">
       <div class="card-header lead font-weight-bold formAnimation" style="color: white;font-size: 25px; margin-left: auto;margin-right: auto;">
@@ -51,24 +52,22 @@
           </colgroup>
           <tr>
             <td>
-              <div class="form-group formAnimation">
-                <label for="First Name" class="lead font-weight-bold" style="color: white;">First Name</label>
+              <div class="form-group formAnimation input-group">
+                <label for="first_name" class="lead font-weight-bold" style="color: white;">First Name</label>
               </div>
               </td>
             <td>
-              <div class="formProfileMargin formAnimation">
-                <input type="text" pattern="[a-zA-Z ]+" class="form-control" id="Ex_Name" value={{user.first_name}} required readonly>
-                </div>
+              <div class="formProfileMargin formAnimation" style = "border-radius: 9px">
+                {{u_form.first_name}}                  
+              </div>
             </td>
             <td rowspan="5">
               <div class= "mb-5">
                 <div class="card" style="background-color: rgb(66,66,66,0);">
                     <div class="card-body card Instruct" style="background-color: rgb(66,66,66,0);">
-                      <img id="file-ip-1-preview" src={% static 'Educapedia/user.png' %} alt="" style="width: 7cm; height: 7cm;border-radius: 20cm;" class="ml-5 formAnimation">
+                      <img id="file-ip-1-preview" src={{ user.profile.image.url }} alt="" name = "image" style="width: 7cm; height: 7cm;border-radius: 20cm;" class="ml-5 formAnimation">
                       <div class="card-title">
-                        <label for="file-ip-1" class="btn  mt-3 ml-5 formAnimation" style="background-color: rgb(0, 141, 0); color: white;border-radius: 9px" id="labelforImg">Upload</label>
-                        <label for="" class="lead" id="Name_Photo"></label>
-                        <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);" style="opacity: 0;"disabled>
+                          {{p_form.image}}
                       </div>  
                     </div>
                   </div>
@@ -78,105 +77,40 @@
           <tr>
             <td>
               <div class="form-group formAnimation">
-                <label for="Last Name" class="lead font-weight-bold" style="color: white;">Last Name</label>
+                <label for="last_name" class="lead font-weight-bold" style="color: white;">Last Name</label>
               </div>
               </td>
             <td>
               <div class="formProfileMargin formAnimation">
-                <input type="text" pattern="[a-zA-Z ]+" class="form-control" id="Ex_Name" value={{user.last_name}} required readonly>
-                </div>
+                {{u_form.last_name}}
+              </div>
             </td>
           </tr>
           <tr>
             <td>
               <div class="form-group formAnimation">
-                <label for="Phone_Number" class="lead font-weight-bold" style="color: white;">Phone Number</label>
+                <label for="username" class="lead font-weight-bold" style="color: white;">Username</label>
               </div>
               </td>
             <td>
               <div class="formProfileMargin formAnimation">
-                <input type="tel" class="form-control" id="Ex_Number" pattern="[0-9]+" value="01234567891" readonly>
+                {{u_form.username}}
               </div>
             </td>
           </tr>
           <tr>
             <td>
               <div class="form-group formAnimation">
-                <label for="Parent_Phone_Number" class="lead font-weight-bold" style="color: white;">Parent Number</label>
+                <label for="email" class="lead font-weight-bold" style="color: white;">Email</label>
               </div>
               </td>
             <td>
               <div class="formProfileMargin formAnimation">
-                <input type="tel" class="form-control" id="Ex_Parent_Number" pattern="[0-9]+" value="01234567891" readonly>
+                {{u_form.email}}
               </div>
             </td>
           </tr>
-          <tr>
-            <td>
-              <div class="form-group  formAnimation">
-              <label for="exampleInputEmail1" class="lead font-weight-bold" style="color: white;">Email</label>
-              </div>
-            </td>
-            <td>
-              <div class="formProfileMargin formAnimation">
-                <input type="email" class="form-control" id="Ex_Email" aria-describedby="emailHelp" value="{{user.email}}" required readonly>
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>        </div>
-            </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="form-group formAnimation">
-                <label for="exampleInputPassword1" class="lead font-weight-bold" style="color: white;">Password</label>
-              </div>
-            </td>
-            <td>
-              <div class="formProfileMargin formAnimation">
-                <input type="password" class="form-control" id="Ex_Password" value="HiddenMessage" required readonly>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="form-group formAnimation">
-                <label for="School" class="lead font-weight-bold" style="color: white;">School Name</label>
-              </div>
-            </td>
-            <td>
-              <div class="formProfileMargin formAnimation">
-                <input type="text" pattern="[a-zA-Z ]+" class="form-control" id="School" value="ExSchool" readonly>
-                <small id="SchoolHelp" class="form-text text-muted">Optional</small> 
-            </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="form-group formAnimation">
-                <label for="Address" class="lead font-weight-bold" style="color: white;">Address</label>
-              </div>
-            </td>
-            <td>
-              <div class="formProfileMargin formAnimation">
-                <input type="text" class="form-control" id="Ex_Address" value="-" readonly>
-                <small id="AddressHelp" class="form-text text-muted">Optional</small>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="form-group formAnimation">
-                <label for="Gender" class="lead font-weight-bold" style="color: white;">Gender</label>
-            </td>
-            <td>
-              <div class="form-group formAnimation">
-                <select class="custom-select" id="Gender" disabled>
-                  <option value="NS">Not Selected</option>
-                  <option value="Male">Male</option>
-                  <option value="FeMale">Female</option>
-                </select>
-              </div>
-            </td>
-          </tr>
+         
         </table>
       </div>
   </div>
