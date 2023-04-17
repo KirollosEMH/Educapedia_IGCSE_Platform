@@ -57,6 +57,13 @@ class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['first_name','last_name','username', 'email']
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.exclude(pk=self.instance.pk).filter(email=email).exists():
+            raise forms.ValidationError('Email address already in use.')
+        return email
+    
+
 
 
 class ProfileUpdateForm(forms.ModelForm):
