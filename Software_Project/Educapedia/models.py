@@ -28,7 +28,7 @@ class Courses(models.Model):
     video2 = models.FileField(upload_to='static/videos/')
     quiz = models.URLField()
     assignment = models.URLField()
-    picture = models.ImageField(upload_to='static/pictures/')
+    picture = models.ImageField(upload_to='media/static/pictures/')
     def __str__(self):
         return self.name
 
@@ -37,3 +37,12 @@ class Profile (models.Model):
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     def __str__(self):
         return f'{self.user.username} Profile'
+
+class Enrollment(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE)
+    date_purchased = models.DateTimeField(auto_now_add=True)
+    completed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.student} enrolled in {self.course} on {self.date_purchased}"

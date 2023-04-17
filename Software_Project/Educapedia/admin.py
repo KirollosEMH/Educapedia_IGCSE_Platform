@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Student
 from .models import Courses
+from .models import Enrollment
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
 from Educapedia.models import Profile
@@ -23,3 +24,11 @@ class CourseAdmin(admin.ModelAdmin):
     search_fields = ('name', 'category')
 
 admin.site.register(Profile)
+
+
+class EnrollmentAdmin(admin.ModelAdmin):
+    list_display = ('student', 'course', 'date_purchased', 'completed')
+    list_filter = ('course', 'completed')
+    search_fields = ('student__first_name', 'student__last_name', 'course__name')
+
+admin.site.register(Enrollment)

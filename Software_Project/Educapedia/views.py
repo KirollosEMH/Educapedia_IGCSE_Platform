@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from .models import Courses
+from .models import Enrollment
 
 
 def Home(request):
@@ -49,7 +50,8 @@ def Profile(request):
 
 @ login_required
 def Dashboard(request):
-    return render(request, 'Educapedia/Dashboard.html')
+    enrollments = Enrollment.objects.filter(student=request.user.student)
+    return render(request, 'Educapedia/Dashboard.html', {'enrollments': enrollments})
 
 @  login_required
 def OurSubjects(request):
@@ -62,3 +64,7 @@ def CourseInfo(request, course_name):
     course = Courses.objects.get(name=course_name)
     return render(request, 'Educapedia/CourseInfo.html', {'course': course})
 
+@ login_required
+def Video(request, course_name):
+    course = Courses.objects.get(name=course_name)
+    return render(request, 'Educapedia/Video.html', {'course': course})

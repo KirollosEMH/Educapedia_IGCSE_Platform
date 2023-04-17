@@ -31,6 +31,7 @@ urlpatterns = [
     path('Dashboard/', Educapedia_views.Dashboard, name='Edu-Dashboard'),
     path('OurSubjects/', Educapedia_views.OurSubjects, name='Edu-OurSubjects'),
     path('CourseInfo/<str:course_name>/', Educapedia_views.CourseInfo, name='Edu-CourseInfo'),
+    path('Video/<str:course_name>/', Educapedia_views.Video, name='Edu-Video'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
