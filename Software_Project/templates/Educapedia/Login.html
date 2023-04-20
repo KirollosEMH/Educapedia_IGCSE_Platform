@@ -1,30 +1,39 @@
 {% extends 'Educapedia/Base_Login_Registeration.html' %}
 {% load static %}
 {% block content %}
-  <div class="Login" >
-    <h2>Login</h2>
-    <form method = "POST">
-      {% csrf_token %}
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" placeholder="Enter Username" required>
-      <br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Enter Password" required>
-      <br>
-      <input type="submit" value="Login">
-    </form>
-
-    <div class="Remember_me_button">
-      <label class="checkbox" style="font-size: 15px; margin-top: 5%;">Remember Me
-      <input type="checkbox" checked="">
-      <span class="checkmark"></span>
-      </label>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card my-5 text-white"  style="background-color: rgba(0, 0, 0, 0.5);border-color: white;">
+        <div class="card-body">
+          <h2 class="card-title text-center">Login</h2>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" required>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Login" class="btn btn-primary btn-block">
+            </div>
+          </form>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMe" checked>
+            <label class="form-check-label" for="rememberMe">Remember Me</label>
+          </div>
+          <div class="text-center">
+            <a href="{% url 'Edu-ForgetPassword' %}">Forgot Password?</a>
+          </div>
+          <div class="text-center">
+            <p>Don't have an account? <a href="{% url 'Edu-Register' %}">Register here</a>.</p>
+          </div>
+        </div>
       </div>
-      <div class="forget_button">
-      <a href={% url 'Edu-ForgetPassword' %}> Forgot Password ? </a>
-      </div>
-
-      <p>Don't have an account? <a href={% url 'Edu-Register' %}>Register here</a>.</p>
+    </div>
   </div>
-  <br><br><br><br>
+</div>
 {% endblock content %}

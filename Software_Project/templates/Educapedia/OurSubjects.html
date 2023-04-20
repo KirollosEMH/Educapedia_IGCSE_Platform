@@ -38,136 +38,128 @@
       </nav>
       
     <script src="{% static 'Educapedia/QuickAccess.js' %}"></script>
-    <div>
-        <h1 class="display-1 font-weight-bold font-italic mt-5" style="font-size: 30px ;text-align: center; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Our Subjects</h1><br>
-        <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 25px; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Quick Access</h2>
-        <div class="gallery">
-            
-            
-            <img id="math" src="{% static 'Educapedia/math.jpg'%}" onclick="scrollToDiv('Math')" />
-            <img id="science" src="{% static 'Educapedia/Science.png'%}" onclick="scrollToDiv('Science')" />
-            
-            <img id="ict" src="{% static 'Educapedia/ict.png'%}" onclick="scrollToDiv('ICT')" />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="display-1 font-weight-bold font-italic mt-5 text-center text-white" style="font-size: 30px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Our Subjects</h1>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h2 class="display-3 mt-3 font-weight-bold text-center text-white" style="font-size: 25px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Quick Access</h2>
+        </div>
+      </div>
+      <div class="gallery">
         
-    </div>
-    <br><br>
-
-    <div style="text-align: center;">
-      <div class="Instructor animate__animated animate__fadeInDown" id="Instructors">
+          <img id="math" src="{% static 'Educapedia/math.jpg'%}" class="img-fluid" onclick="scrollToDiv('Math')" />
         
-        <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Meet Our Instructors</h2>
-        <br>
-        <div class="d-flex justify-content-center" style="margin-left: 1%;margin-right: 2%;">
-          <div  style="margin-bottom: 2%;">
-            <div class="card Instruct mx-auto" style="width: 15rem;  opacity: 1;background-color: transparent;">
-              <img src="{% static 'Educapedia/photo1.jpeg'%}" class="card-img-top" alt="..." style="border-radius: 25%;  width: 250px; height: 250px;">
-              <div class="card-body">
-                <h5 class="card-title">Instructor 1</h5>
-                <p class="card-text">Teacher at School</p>
-                
+        
+          <img id="science" src="{% static 'Educapedia/Science.png'%}" class="img-fluid" onclick="scrollToDiv('Science')" />
+        
+          <img id="ict" src="{% static 'Educapedia/ict.png'%}" class="img-fluid" onclick="scrollToDiv('ICT')" />
+        
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="Instructor animate__animated animate__fadeInDown" id="Instructors">
+            <h2 class="display-3 mt-3 font-weight-bold text-center text-white" style="font-size: 30px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Meet Our Instructors</h2>
+            <br>
+            <div class="d-flex justify-content-center" style="margin-left: 1%; margin-right: 2%;">
+              <div style="margin-bottom: 2%;">
+                <div class="card Instruct mx-auto" style="width: 15rem; opacity: 1; background-color: transparent;">
+                  <img src="{% static 'Educapedia/photo1.jpeg'%}" class="card-img-top rounded-circle" alt="..." style="width: 250px; height: 250px;">
+                  <div class="card-body">
+                    <h5 class="card-title">Instructor 1</h5>
+                    <p class="card-text">Teacher at School</p>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-bottom: 2%;">
+                <div class="card Instruct mx-auto" style="width: 15rem; opacity: 1; background-color: transparent;">
+                  <img src="{% static 'Educapedia/photo2.jpeg'%}" class="card-img-top rounded-circle" alt="..." style="width: 250px; height: 250px;">
+                  <div class="card-body">
+                    <h5 class="card-title">Instructor 2</h5>
+                    <p class="card-text">Teacher at School</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div  style="margin-bottom: 2%;">
-            <div class="card Instruct  mx-auto" style="width: 15rem;  opacity: 1; background-color: transparent;">
-              <img src="{% static 'Educapedia/photo2.jpeg'%}" class="card-img-top" alt="..." style="border-radius: 25%; width: 250px; height: 250px;">
-              <div class="card-body">
-                <h5 class="card-title">Instructor 2</h5>
-                <p class="card-text">Teacher at School</p>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-    <br><br>
-
-    <div>
-      
-      <div class="Math animate__animated animate__fadeInLeft" id="Math">
-        <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Math</h2>
-        <br>
-        <div class="d-flex flex-wrap" style="margin-left: 1%;margin-right: 2%;">
-          {% for course in courses %}
-            {% if course.category == "math" %}
-              <div style="margin-bottom: 2%;">
-                <div class="card" style="width: 15rem;  opacity: 0.9;" id="{{ course.name }}">
-                  <img src="{{ course.picture.url }}" class="card-img-top" alt="{{ course.name }}">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ course.name }}</h5>
-                    <p class="card-text">Taught by: {{ course.instructor }}</p>
-                    <a href="{% url 'Edu-CourseInfo' course.name %}" class="btn btn-primary" style="width: 100%;">Details</a>
-                  </div>
-                </div>
-              </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-            {% endif %}
-          {% endfor %}
-
         </div>
       </div>
-      <br><br>
-      <div class="Science how to make animation start when i scroll over it" id="Science">
-        
-        <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Science</h2>
-        <br>
-        <div class="d-flex flex-wrap" style="margin-left: 1%;margin-right: 2%;">
-          {% for course in courses %}
-            {% if course.category == "science" %}
-              <div style="margin-bottom: 2%;">
-                <div class="card" style="width: 15rem;  opacity: 0.9;" id="{{ course.name }}">
-                  <img src="{{ course.picture.url }}" class="card-img-top" alt="{{ course.name }}">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ course.name }}</h5>
-                    <p class="card-text">Taught by: {{ course.instructor }}</p>
-                    <a href="{% url 'Edu-CourseInfo' course.name %}" class="btn btn-primary" style="width: 100%;">Details</a>
-                  </div>
-                </div>
-              </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-            {% endif %}
-          {% endfor %}
-          
-        </div>
-        
-      </div>
-      <br><br>
-      
-      <div class="ict how to make animation start when i scroll over it" id="ICT">
-        
-        <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">ICT</h2>
-        <br>
-        <div class="d-flex flex-wrap" style="margin-left: 1%;margin-right: 2%;">
-          {% for course in courses %}
-            {% if course.category == "ict" %}
-              <div style="margin-bottom: 2%;">
-                <div class="card" style="width: 15rem;  opacity: 0.9;" id="{{ course.name }}">
-                  <img src="{{ course.picture.url }}" class="card-img-top" alt="{{ course.name }}">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ course.name }}</h5>
-                    <p class="card-text">Taught by: {{ course.instructor }}</p>
-                    <a href="{% url 'Edu-CourseInfo' course.name %}" class="btn btn-primary" style="width: 100%;">Details</a>
-                  </div>
-                </div>
-              </div>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-            {% endif %}
-          {% endfor %}
-        </div>
-        
-      </div>
-      <br><br>
     </div>
     
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
+    <br><br>
+
+    <div class="container" style="background-color: rgba(0,0,0,0.3);border-radius: 1%;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="Math animate__animated animate__fadeInLeft" id="Math">
+            <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Math</h2>
+            <br>
+            <div class="row">
+              {% for course in courses %}
+                {% if course.category == "math" %}
+                  <div class="col-md-3 mb-3">
+                    <div class="card" style="opacity: 0.9;" id="{{ course.name }}">
+                      <img src="{{ course.picture.url }}" class="card-img-top" alt="{{ course.name }}">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ course.name }}</h5>
+                        <p class="card-text">Taught by: {{ course.instructor }}</p>
+                        <a href="{% url 'Edu-CourseInfo' course.name %}" class="btn btn-primary btn-block">Details</a>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          <br><br>
+          <div class="Science animate__animated animate__fadeInLeft" id="Science">
+            <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Science</h2>
+            <br>
+            <div class="row">
+              {% for course in courses %}
+                {% if course.category == "science" %}
+                  <div class="col-md-3 mb-3">
+                    <div class="card" style="opacity: 0.9;" id="{{ course.name }}">
+                      <img src="{{ course.picture.url }}" class="card-img-top" alt="{{ course.name }}">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ course.name }}</h5>
+                        <p class="card-text">Taught by: {{ course.instructor }}</p>
+                        <a href="{% url 'Edu-CourseInfo' course.name %}" class="btn btn-primary btn-block">Details</a>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          <br><br>
+      
+          <div class="ICT animate__animated animate__fadeInLeft" id="ict">
+            <h2 class="display-3 mt-3 font-weight-bold" style="font-size: 30px;color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">ICT</h2>
+            <br>
+            <div class="row">
+              {% for course in courses %}
+                {% if course.category == "ict" %}
+                  <div class="col-md-3 mb-3">
+                    <div class="card" style="opacity: 0.9;" id="{{ course.name }}">
+                      <img src="{{ course.picture.url }}" class="card-img-top" alt="{{ course.name }}">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ course.name }}</h5>
+                        <p class="card-text">Taught by: {{ course.instructor }}</p>
+                        <a href="{% url 'Edu-CourseInfo' course.name %}" class="btn btn-primary btn-block">Details</a>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        
+      </div>
+      <br><br>
+    </div>
+  </div>
 {% endblock content %}
