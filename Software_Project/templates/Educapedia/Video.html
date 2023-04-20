@@ -1,179 +1,157 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Educapedia</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="video.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fontawesome.com/v5/icons/whatsapp?s=solid&f=brands">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-  <body style="margin-left: 2%;margin-right: 2%;">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+{% extends 'Educapedia/Base_Subjects.html' %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse font-weight-bold ml-1" style="font-size: 20px;" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="Home.html">Educapedia<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Profile.html">Profile</a>
-            </li>
-            <li class="nav-item  active">
-              <a class="nav-link" href="Dashboard.html">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="OurSubjects.html">Subjects</a>
-              </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Login.html">Sign in</a>
-              </li>
-            <li class="nav-item">
-                <a class="nav-link" href="AdminControl.html">Admin</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Contact Us
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item " target="_blank" href="#">WhatsApp<i class="fa fa-whatsapp ml-2" style="font-size:24px;"></i></a>
-                <a class="dropdown-item " target="_blank" href="#">Facebook<i class="fa fa-facebook ml-2"></i></a>
-                <a class="dropdown-item " target="_blank" href="#">Gmail<i class="fa fa-google ml-3"></i></a>
-              </div>
-            </li>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse font-weight-bold ml-1" style="font-size: 20px;" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Edu-Home' %}">Educapedia<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Edu-Dashboard' %}">Dashboard</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'Edu-OurSubjects' %}">Subjects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Edu-Profile' %}">{{user.username}}</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'Edu-Logout' %}">Logout</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Contact Us
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item " target="_blank" href="#">WhatsApp<i class="fa fa-whatsapp ml-2" style="font-size:24px;"></i></a>
+          <a class="dropdown-item " target="_blank" href="#">Facebook<i class="fa fa-facebook ml-2"></i></a>
+          <a class="dropdown-item " target="_blank" href="#">Gmail<i class="fa fa-google ml-3"></i></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+    
+  <br><br>
+  
+	<div style="background-color: rgb(23, 23, 23,0.5);border-radius: 1%;">
+
+  <!-- Header -->
+	<header class="text-white">
+		<div class="container-fluid">
+			<div class="row py-4">
+				<div class="col-md-6">
+					<h1>{{ course.name }}</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+<!-- Course Description -->
+  <section class="py-5 text-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<h2>Course Description</h2>
+					<p>{{course.description}}</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Course Information</h2>
+					<ul class="list-unstyled">
+						<li><i class="fas fa-clock"></i> Duration: 4 hours</li>
+
           </ul>
-          <a href=""></a>
         </div>
-      </nav>
-      <button onclick="topFunction()" id="myBtn" title="Go to top">↑</button>
-      <script src="ScrollTopButton.js"></script>
-      
-      
-
-
-      <img src="BG3.png" alt="" class="bg-image">
-          
-          <script>
-              const navEl = document.querySelector('.navbar');
-              window.addEventListener('scroll',()=>{
-                  if(window.scrollY >= 150){
-                      navEl.classList.add('navbar-scrolled')
-                  }
-                  else if(window.scrollY < 150){
-                      navEl.classList.remove('navbar-scrolled')
-                  }
-              })
-    </script>
-    <br>
-    <div>
-        <h1 class="display-1 font-weight-bold font-italic mt-5 animate__animated animate__backInDown" style="font-size: 50px ;text-align: center; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Pure 1 Math</h1><br>
-        
-        
-        <div style="padding-left: 10%; padding-right: 10%;">
-          <h3 class="display-1 font-weight-bold font-italic mt-5 " style="font-size: 50px ;text-align: left; color:White;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Content</h3><br>
-        
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item"  style="background-color: black;">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed"  style="background-color: black;color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Video Part 1
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <video width="100%" height="100%" controls>
-                    <source src="Test.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
+      </div>
+    </div>
+  </section>
+	<!-- Video Player -->
+	<section class="py-5">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="embed-responsive embed-responsive-16by9">
+						<video class="embed-responsive-item" src="{{ course.video1.url }}" allowfullscreen controls></video>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Course Outline</h5>
+							<ul class="list-unstyled">
+								 <li><a href="#">Introduction to HTML</a></li>
+								 <li><a href="#">HTML5 Elements</a></li>
+								 <li><a href="#">CSS Basics</a></li>
+								 <li><a href="#">CSS Layouts</a></li>
+								 <li><a href="#">Responsive Design</a></li>
+								 <li><a href="#">CSS Frameworks</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    
+    <!-- Quiz -->
+    <section class="py-5 text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Quiz</h2>
+                    <p>Take the quiz to test your knowledge on the course material.</p>
+                    <a href="{{course.quiz}}" class="btn btn-primary">Take Quiz</a>
                 </div>
             </div>
-          </div>  
-            <div class="accordion-item"  style="background-color: black;">
-              <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" style="background-color: black;color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Video Part 2
-                </button>
-              </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <video width="100%" height="100%" controls>
-                    <source src="Test.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item"  style="background-color: black;">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" style="background-color: black;color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                  Quiz 1
-                </button>
-              </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <button class="btn btn-primary" onclick="window.location.href='https://www.google.com';" style="width: 100%; padding-left: 3%; padding-right: 3%;">button</button>
-
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item"  style="background-color: black;">
-              <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" style="background-color: black;color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
-                  Quiz 2
-                </button>
-              </h2>
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <button class="btn btn-primary" onclick="window.location.href='https://www.google.com';" style="width: 100%; padding-left: 3%; padding-right: 3%;">button</button>
-
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item"  style="background-color: black;">
-              <h2 class="accordion-header" id="headingFive">
-                <button class="accordion-button collapsed" style="background-color: black;color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseTwo">
-                  Assignment 1
-                </button>
-              </h2>
-              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <button class="btn btn-primary" onclick="window.location.href='https://www.google.com';" style="width: 100%; padding-left: 3%; padding-right: 3%;">button</button>
-
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-
-        
-        
-    </div>  
-        
+    </section>
     
-
+    <!-- Video 2 -->
+    <section class="py-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <video class="embed-responsive-item" src="{{ course.video2.url }}" allowfullscreen controls></video>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Course Outline</h5>
+                            <ul class="list-unstyled">
+                                 <li><a href="#">Introduction to HTML</a></li>
+                                 <li><a href="#">HTML5 Elements</a></li>
+                                 <li><a href="#">CSS Basics</a></li>
+                                 <li><a href="#">CSS Layouts</a></li>
+                                 <li><a href="#">Responsive Design</a></li>
+                                 <li><a href="#">CSS Frameworks</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Assignment -->
+    <section class="py-5 text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Assignment</h2>
+                    <p>Complete the following assignment to reinforce your learning.</p>
+                    <a href="{{course.assignment}}" class="btn btn-primary">Complete Assignment</a>
+                </div>
+            </div>
+        </div>
+    </section>
     
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
+      
+  </div>
+   
+{% endblock content %}

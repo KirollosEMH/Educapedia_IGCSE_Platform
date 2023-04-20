@@ -24,8 +24,8 @@ class Courses(models.Model):
     description = models.TextField()
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
     instructor = models.CharField(max_length=100,default='Test')
-    video1 = models.FileField(upload_to='static/videos/')
-    video2 = models.FileField(upload_to='static/videos/')
+    video1 = models.FileField(upload_to='media/static/videos/')
+    video2 = models.FileField(upload_to='media/static/videos/')
     quiz = models.URLField()
     assignment = models.URLField()
     picture = models.ImageField(upload_to='media/static/pictures/')
@@ -45,4 +45,4 @@ class Enrollment(models.Model):
     completed = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.student} enrolled in {self.course} on {self.date_purchased}"
+        return f"{self.student} enrolled in {self.course} on {self.date_purchased.strftime('%d %B %Y %H:%M')}"
