@@ -23,10 +23,14 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Educapedia_views.Home, name='Edu-Home'),
-    path('Login/', auth_views.LoginView.as_view(template_name='Educapedia/Login.html'), name='Edu-Login'),
-    path('Logout/', auth_views.LogoutView.as_view(template_name='Educapedia/Logout.html'), name='Edu-Logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='Educapedia/Login.html'), name='Edu-Login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='Educapedia/Logout.html'), name='Edu-Logout'),
     path('Register/', Educapedia_views.Register, name='Edu-Register'),
-    path('ForgetPassword/', Educapedia_views.ForgetPassword, name='Edu-ForgetPassword'),
+
+    path('password_reset/', Educapedia_views.PasswordResetView.as_view(), name='Edu-password_reset'),
+    path('password_reset/done/', Educapedia_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('password_reset_confirm/<uidb64>/<token>/', Educapedia_views.PasswordResetConfirmView.as_view(success_url='/login/'), name='password_reset_confirm'),
+    path('password_reset_complete/', Educapedia_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('Profile/', Educapedia_views.Profile, name='Edu-Profile'),
     path('Dashboard/', Educapedia_views.Dashboard, name='Edu-Dashboard'),
     path('OurSubjects/', Educapedia_views.OurSubjects, name='Edu-OurSubjects'),

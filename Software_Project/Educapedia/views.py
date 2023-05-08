@@ -5,6 +5,7 @@ from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from .models import Courses
 from .models import Enrollment
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 
 def Home(request):
@@ -21,9 +22,11 @@ def Register (request):
         form = UserRegisterForm()
     return render (request, 'Educapedia/Registration.html', {'form':form})
 
+class MyPasswordResetView(PasswordResetView):
+    template_name = 'Educapedia/password_reset.html'
+    email_template_name = 'Educapedia/password_reset_email.html'
+    success_url = 'Educapedia:password_reset_done'
 
-def ForgetPassword(request):
-    return render(request, 'Educapedia/Forget Password.html')
 
 @ login_required
 def Profile(request):
