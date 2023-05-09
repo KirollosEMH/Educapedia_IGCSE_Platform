@@ -9,7 +9,7 @@
           <h2 class="card-title text-center">Login</h2>
           <form method="POST">
             {% csrf_token %}
-            <div class="form-group">
+            <div class="form-group ">
               <label for="username">Username:</label>
               <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username" required>
             </div>
@@ -21,10 +21,13 @@
               <input type="submit" value="Login" class="btn btn-primary btn-block">
             </div>
           </form>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="rememberMe" checked>
-            <label class="form-check-label" for="rememberMe">Remember Me</label>
-          </div>
+          {% if form.errors%}
+            <div class="alert alert-danger">
+              <ul>
+                <li>Username or Password is incorrect</li>
+              </ul>
+            </div>
+          {% endif %}
           <div class="text-center">
             <a href="{% url 'Edu-password_reset' %}">Forgot Password?</a>
           </div>

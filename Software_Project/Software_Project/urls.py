@@ -28,7 +28,7 @@ urlpatterns = [
     path('Register/', Educapedia_views.Register, name='Edu-Register'),
     path('password_reset/', Educapedia_views.PasswordResetView.as_view(template_name='Educapedia/password_reset.html'), name='Edu-password_reset'),
     path('password_reset/done/', Educapedia_views.PasswordResetDoneView.as_view(template_name='Educapedia/password_reset_done.html'), name='password_reset_done'),
-    path('password_reset_confirm/<uidb64>/<token>/', Educapedia_views.PasswordResetConfirmView.as_view(success_url='/login/',template_name='Educapedia/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('password_reset_confirm/<uidb64>/<token>/', Educapedia_views.PasswordResetConfirmView.as_view(template_name='Educapedia/password_reset_confirm.html'), name='password_reset_confirm'),
     path('password_reset_complete/', Educapedia_views.PasswordResetCompleteView.as_view(template_name='Educapedia/password_reset_complete.html'), name='password_reset_complete'),
     path('Profile/', Educapedia_views.Profile, name='Edu-Profile'),
     path('Dashboard/', Educapedia_views.Dashboard, name='Edu-Dashboard'),

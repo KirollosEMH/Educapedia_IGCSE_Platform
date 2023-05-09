@@ -121,9 +121,9 @@
     <div class="col">
       <h3 class="display-4 font-weight-bold TextDec mb-3">Your Journey Starts Here</h3>
       {% if user.is_authenticated %}
-        <button type="button" class="btn btn-success btn-lg mb-2" style="border-radius: 9px;"><a href="{% url 'Edu-OurSubjects' %}" class="text-white">Start</a></button>
+        <a href="{% url 'Edu-OurSubjects' %}" class="btn btn-success btn-lg mb-2" style="border-radius: 9px;">Start</a>
       {% else %}
-        <button type="button" class="btn btn-success btn-lg mb-2" style="border-radius: 9px;"><a href="{% url 'Edu-Login' %}" class="text-white">Start</a></button>
+        <a href="{% url 'Edu-Login' %}" class="btn btn-success btn-lg mb-2" style="border-radius: 9px;">Start</a>
       {% endif %}
     </div>
   </div>

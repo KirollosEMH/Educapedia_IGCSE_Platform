@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Courses
 from .models import Enrollment
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
+from django.contrib.auth.forms import PasswordResetForm
 
 
 def Home(request):
