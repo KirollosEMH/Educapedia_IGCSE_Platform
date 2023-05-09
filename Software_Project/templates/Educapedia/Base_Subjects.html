@@ -13,6 +13,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link rel="stylesheet" href={% static 'Educapedia/footer.css' %}>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'Educapedia/SubjectsStyle.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -27,15 +28,27 @@
     <script>
         const navEl = document.querySelector('.navbar');
         window.addEventListener('scroll',()=>{
-            if(window.scrollY >= 150){
+            if(window.scrollY >= 0){
                 navEl.classList.add('navbar-scrolled')
             }
-            else if(window.scrollY < 150){
+            else if(window.scrollY < 0){
                 navEl.classList.remove('navbar-scrolled')
             }
         })
     </script>
-    
+    <footer class="bg-darkred text-center text-white">
+      <div class="container p-4 pb-0">
+        <section class="mb-4">
+          <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+          <a class="btn text-white btn-floating m-1" style="background-color: #075E54;" href="https://wa.me/+201157724215" target = "_blank" role="button"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+          <a class="btn text-white btn-floating m-1" style="background-color: #dd4b39;" href="mailto:educapedia.2023@gmail.com?subject=Feedback" role="button" target = "_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+          <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="https://www.instagram.com/educapedia._/?igshid=NTc4MTIwNjQ2YQ%3D%3D" role="button" target = "_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </section>
+      </div>
+      <div class="text-center p-3 mt-0" style="background-color: rgba(0, 0, 0, 0.2);">
+        <span>© 2023 Educapedia. All rights reserved.</span>
+      </div>
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
