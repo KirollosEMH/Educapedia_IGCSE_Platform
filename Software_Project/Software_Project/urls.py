@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from Educapedia import  views as Educapedia_views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from Educapedia.views import MyPaymentView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +36,8 @@ urlpatterns = [
     path('OurSubjects/', Educapedia_views.OurSubjects, name='Edu-OurSubjects'),
     path('CourseInfo/<str:course_name>/', Educapedia_views.CourseInfo, name='Edu-CourseInfo'),
     path('Video/<str:course_name>/', Educapedia_views.Video, name='Edu-Video'),
+    path('Payment/', MyPaymentView.as_view(), name='Edu-Payment'),
+    path('PaymentSuccess/', Educapedia_views.charge, name='Edu-Charge'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

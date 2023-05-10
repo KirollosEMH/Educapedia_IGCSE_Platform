@@ -1,0 +1,20 @@
+{% extends "Educapedia/Base_Login_Registeration.html" %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card my-5 text-white"  style="background-color: rgba(0, 0, 0, 0.5);border-color: white;">
+          <div class="card-body">
+              <div class="form-group">
+                <h4 class="card-title text-center">Payment Request Successfully</h4>
+              </div>
+              <div class="form-group">
+                <a type="button" value="Login " class="btn btn-primary btn-block" href = {% url 'Edu-Dashboard' %}> Login </a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

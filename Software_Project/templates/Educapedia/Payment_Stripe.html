@@ -1,0 +1,46 @@
+{% extends "Educapedia/Base_Login_Registeration.html" %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card my-5 text-white"  style="background-color: rgba(0, 0, 0, 0.5);border-color: white;">
+          <div class="card-body">
+            <form method="POST" action="{% url 'Edu-Charge' %}">
+              {% csrf_token %}
+              <div class="form-group">
+                <h4 class="card-title text-center">Payment Request</h4>
+              </div>
+              <div class="form-group">
+                <button id="checkout-button" class = "btn btn-primary btn-block">Pay with Card</button>
+                
+            </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script>
+    var stripeKey = '{{ STRIPE_PUBLISHABLE_KEY }}';
+    var handler = StripeCheckout.configure({
+      key: stripeKey,
+      locale: 'auto',
+      token: function(token) {
+        // Send the token to your server to process the payment
+      }
+    });
+  
+    document.getElementById('checkout-button').addEventListener('click', function(e) {
+      // Open Stripe Checkout when the button is clicked
+      handler.open({
+        name: 'Educapedia',
+        currency: 'egp',
+        email: '{{ user.email }}',
+        description: 'Subject Payment',
+        amount: 40000
+      });
+      e.preventDefault();
+    });
+  </script>
+{% endblock content %}
