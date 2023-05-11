@@ -2,7 +2,14 @@
 .bg-darkred {
     background-color: #110707c0 ;
   }
+body {
+  min-height: 100vh;
+}
   
+footer{
+  position: sticky;
+  top: 100%;
+}
   @media (max-width: 767px) {
     footer {
       padding-top: 60px;
