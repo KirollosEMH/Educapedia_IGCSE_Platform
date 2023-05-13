@@ -12,21 +12,19 @@
               <a class="nav-link" href="{% url 'Edu-Home' %}">Educapedia<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'Edu-Profile' %}">Profile</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{% url 'Edu-Dashboard' %}">Dashboard</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'Edu-OurSubjects' %}">Subjects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'Edu-Login' %}">Sign in</a>
+              <a class="nav-link" href="{% url 'Edu-Profile' %}">
+                {{user.username}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="AdminControl.html">Admin</a>
+              <a class="nav-link" href="{% url 'Edu-Logout' %}">Logout</a>
+            </li>
           </ul>
-          <a href=""></a>
         </div>
       </nav>
       <br><br>
