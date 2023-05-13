@@ -36,7 +36,7 @@ urlpatterns = [
     path('OurSubjects/', Educapedia_views.OurSubjects, name='Edu-OurSubjects'),
     path('CourseInfo/<str:course_name>/', Educapedia_views.CourseInfo, name='Edu-CourseInfo'),
     path('Video/<str:course_name>/', Educapedia_views.Video, name='Edu-Video'),
-    path('Payment/', MyPaymentView.as_view(), name='Edu-Payment'),
+    path('Payment/<str:course_name>/', MyPaymentView.as_view(), name='Edu-Payment'),
     path('PaymentSuccess/', Educapedia_views.charge, name='Edu-Charge'),
 ]
 if settings.DEBUG:

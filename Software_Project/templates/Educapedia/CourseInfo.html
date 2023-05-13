@@ -51,9 +51,9 @@
                     
                   </ul>
                   <br>
-                  <h2 class="card-title">Price: 400 EGP</h2>
+                  <h2 class="card-title">Price: {{course.price}} EGP</h2>
                   
-                  <a href={% url 'Edu-Payment' %} class="btn btn-success" style="width: 100%;">Buy Now</a>
+                  <a href="{% url 'Edu-Payment' course.name %}" class="btn btn-success" style="width: 100%;">Buy Now</a>
                   
                 </div>
               </div>

@@ -29,6 +29,7 @@ class Courses(models.Model):
     quiz = models.URLField()
     assignment = models.URLField()
     picture = models.ImageField(upload_to='media/static/pictures/')
+    price = models.IntegerField(default=400)
     def __str__(self):
         return self.name
 

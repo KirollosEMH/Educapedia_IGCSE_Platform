@@ -1,5 +1,5 @@
-function scrollToDiv(divId) {
-    var div = document.getElementsByClassName(className);
-    var offsetTop = div.offsetTop;
-    window.scrollTo(0, offsetTop-100);
-  }
+function scrollToDiv(className) {
+  var div = document.querySelector('.' + className);
+  var offsetTop = div.getBoundingClientRect().top;
+  window.scrollTo(0, offsetTop);
+}
