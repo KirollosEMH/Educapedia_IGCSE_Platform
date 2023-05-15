@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Educapedia.apps.EducapediaConfig',
+    'django_extensions',
     'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -67,6 +68,8 @@ TEMPLATES = [
         },
     },
 ]
+
+GRAPH_MODELS = { "all_applications": True, "group_models": True, }
 
 WSGI_APPLICATION = 'Software_Project.wsgi.application'
 
