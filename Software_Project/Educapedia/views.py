@@ -79,6 +79,8 @@ def Video(request, course_name):
 class MyPaymentView(TemplateView):
     template_name = 'Educapedia/Payment_Stripe.html'
     def get_context_data(self, **kwargs):
+        enrollment =Enrollment.objects.create(student=self.request.user.student, course=Courses.objects.get(name=self.kwargs["course_name"]))
+        enrollment.save()
         context = super().get_context_data(**kwargs)
         context["key"] = settings.STRIPE_PUBLISHABLE_KEY  
         corsues = Courses.objects.all()
