@@ -3,6 +3,7 @@ searchButton.addEventListener('click', function() {
   const searchInput = document.getElementById('search-input').value.toUpperCase();
   const tableRows = document.getElementsByTagName('tr');
 
+  
   for (let i = 0; i < tableRows.length; i++) {
     const tableData = tableRows[i].getElementsByTagName('td');
     let found = false;

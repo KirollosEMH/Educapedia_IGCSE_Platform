@@ -1,6 +1,7 @@
+// This file is used to make the profile page editable and save the changes made by the user
 let btn1 = document.getElementById("edit_btn");
 let num = 0;
-let email = document.getElementById("Ex_Email");
+let email = document.getElementById("Ex_Email"); 
 let pass = document.getElementById("Ex_Password");
 let Name = document.getElementById("Ex_Name");
 let phone = document.getElementById("Ex_Number");
@@ -12,10 +13,12 @@ let imgUpload = document.getElementById("file-ip-1");
 let lblImg = document.getElementById("labelforImg");
 lblImg.style.opacity = "0";
 const formElement = document.querySelector('form');
+
+// Adding event listener to the form
 formElement.addEventListener('submit', (event) => {
     event.preventDefault();
     num++;
-    if (num % 2 != 0) {
+    if (num % 2 != 0) { 
         window.alert("You Can Change your Profile")
         btn1.value = "Save";
         remove(email);
@@ -46,10 +49,12 @@ formElement.addEventListener('submit', (event) => {
 
     }
 })
-function remove(x) {
+// Function to send an email to the user if he forgets his password
+
+function remove(x) { // Function to remove the readonly attribute
     x.removeAttribute("readonly");
 }
-function setreadOnly(x){
+function setreadOnly(x){ // Function to make the input readonly
     x.readOnly = true;
 }
 

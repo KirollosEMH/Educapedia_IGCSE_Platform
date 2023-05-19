@@ -1,3 +1,4 @@
+// This file is used to display the video on the video page
 function selectedVideo(self){
     var file = self.files[0];
     var reader = new FileReader();
@@ -12,9 +13,10 @@ function selectedVideo(self){
     document.getElementById("video").value = "It is not undefined"
     reader.readAsDataURL(file);
 }
-
+// Used to submit two forms at a time
 const fileInput = document.querySelector('input[type="file"]');
 
+// Submit the form when the user selects a file
 fileInput.addEventListener('change', function(event) {
 
   const file = event.target.files[0];

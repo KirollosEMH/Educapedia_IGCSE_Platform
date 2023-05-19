@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
-# create your models here.
-class Student (models.Model):
+
+
+# This class is used to create the student model
+class Student (models.Model): 
     first_name = models.CharField(max_length=30,default='Test')
     last_name = models.CharField(max_length=30,default='Test')
     email = models.EmailField(default='Test')
@@ -10,10 +12,13 @@ class Student (models.Model):
     parent_phone_number = models.CharField(max_length=20)
     school_name = models.CharField(max_length=50)
     
+    # This function is used to return the student's full name
     def __str__(self):
         return self.user.username
 
+# This class is used to create the course model
 class Courses(models.Model):
+    # This tuple is used to store the course categories
     CATEGORY_CHOICES = (
         ('math', 'Math'),
         ('science', 'Science'),
@@ -33,12 +38,14 @@ class Courses(models.Model):
     def __str__(self):
         return self.name
 
+# This class is used to create the profile model
 class Profile (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     def __str__(self):
         return f'{self.user.username} Profile'
-
+        
+# This class is used to create the enrollment model
 class Enrollment(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     course = models.ForeignKey(Courses, on_delete=models.CASCADE)

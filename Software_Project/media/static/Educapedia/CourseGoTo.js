@@ -46,13 +46,3 @@ element.addEventListener("submit",(event) =>{
     // using "?" to seperate the html file from the string we are sending
     window.location.href = "CourseEdit.html?" + urlParams.toString();
 });
-
-//document.getElementById("CourseEditH1").innerHTML = trueValue;
-//let button = document.getElementById("GoTo")
-/*button.addEventListener("click",()=>{
-
-})*/
-
-    //console.log(g.TrueValue());
-    //window.location.href = "CourseEdit.html";
-    //document.getElementById("CourseEditH1").innerHTML = g.TrueValue();

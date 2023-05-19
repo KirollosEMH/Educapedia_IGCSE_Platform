@@ -1,3 +1,4 @@
+// This file is used to preview the image before uploading it to the database
 function showPreview(event){
     if(event.target.files.length > 0){
       var src = URL.createObjectURL(event.target.files[0]);

@@ -26,6 +26,7 @@ const users = [
 
 const table = document.getElementById("user-table");
 
+// Create a row for each user
 users.forEach(user => {
   const row = document.createElement("tr");
   const idCell = document.createElement("td");
@@ -33,33 +34,34 @@ users.forEach(user => {
   row.appendChild(idCell);
 
   const nameCell = document.createElement("td");
-  nameCell.textContent = user.name;
+  nameCell.textContent = user.name; // Displaying the user name
   row.appendChild(nameCell);
 
   const usernameCell = document.createElement("td");
-  usernameCell.textContent = user.username;
+  usernameCell.textContent = user.username; // Displaying the username
   row.appendChild(usernameCell);
 
   const passwordCell = document.createElement("td");
-  passwordCell.textContent = user.password;
+  passwordCell.textContent = user.password; // Displaying the password
   row.appendChild(passwordCell);
 
   const emailCell = document.createElement("td");
-  emailCell.textContent = user.email;
+  emailCell.textContent = user.email; // Displaying the email
   row.appendChild(emailCell);
 
   const phoneCell = document.createElement("td");
-  phoneCell.textContent = user.phone;
+  phoneCell.textContent = user.phone; // Displaying the phone number
   row.appendChild(phoneCell);
 
   const parentPhoneCell = document.createElement("td");
-  parentPhoneCell.textContent = user.parentPhone;
+  parentPhoneCell.textContent = user.parentPhone; // Displaying the parent phone number
   row.appendChild(parentPhoneCell);
 
   const schoolCell = document.createElement("td");
-  schoolCell.textContent = user.school;
+  schoolCell.textContent = user.school; // Displaying the school
   row.appendChild(schoolCell);
 
+  // Create a button to manage the user
   const buttonCell = document.createElement("td");
   const button = document.createElement("button");
   button.textContent = "Manage";
@@ -70,6 +72,8 @@ users.forEach(user => {
     const rowId = row.getAttribute("id");
     window.location.href = `UserControlInfo.html?id=${user.id}`;
   });  
+
+  // Add the button to the cell
   buttonCell.appendChild(button);
   row.appendChild(buttonCell);
 
