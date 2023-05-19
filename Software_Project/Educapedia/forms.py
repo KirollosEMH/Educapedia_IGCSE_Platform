@@ -49,6 +49,10 @@ class UserRegisterForm(UserCreationForm):
         phone_number = self.cleaned_data.get('phone_number')
         if Student.objects.filter(phone_number=phone_number).exists():
             raise forms.ValidationError("This phone number is already in use.")
+        if not phone_number.isdigit():
+            raise forms.ValidationError("Phone number should only contain digits.")
+        if len(phone_number) != 11:
+            raise forms.ValidationError("Phone number should be 11 digits long.")
         return phone_number
 
 # This class is used to validate the email, phone number, parent phone number
@@ -56,6 +60,10 @@ class UserRegisterForm(UserCreationForm):
         parent_phone_number = self.cleaned_data.get('parent_phone_number')
         if Student.objects.filter(parent_phone_number=parent_phone_number).exists():
             raise forms.ValidationError("This parent phone number is already in use.")
+        if not parent_phone_number.isdigit():
+            raise forms.ValidationError("Parent Phone number must be only digits.")
+        if len(parent_phone_number) != 11:
+            raise forms.ValidationError("Parent Phone number should be 11 digits long.")            
         return parent_phone_number
 
 # This class is used to create the user update form
